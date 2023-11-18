@@ -24,6 +24,8 @@ export default function RootLayout({ children }) {
           crossorigin="anonymous"></script>
         )}
 
+      <meta name="google-site-verification" content="p8gZ86O0dw4ZAySROThlK4k5xK7iVajRYJq2p4yEE94" />
+
       </head>
       
 
