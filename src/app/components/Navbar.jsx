@@ -6,6 +6,7 @@ const Navbar = () => {
             قروبات
         </h1>
         </Link>
+        
             <Link 
             href="/new"
             className="bg-green-500 hover:bg-green-700 text-white text-2xl font-bold py-2 px-4 rounded transition-all duration-300"
