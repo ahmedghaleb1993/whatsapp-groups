@@ -9,12 +9,12 @@ const NextPage = async ({ params }) => {
         page:PageNumber
     })
     const allGroups = response.data
-    //console.log(allGroups)
+    //console.log(allGroups.length)
 
 
     return ( <div className='container max-w-6xl mx-auto min-h-screen mt-16'>
 
-    <div className='flex flex-wrap justify-around  gap-4 p-1 sm:p-4 '>
+    <div className='flex flex-wrap justify-around gap-2 sm:gap-4 p-1 sm:p-4 '>
       {
         allGroups.map((group) => (
           <GroupCard key={group.id} name={group.name} link={group.link} imageUrl={group.imageUrl} />
@@ -23,15 +23,18 @@ const NextPage = async ({ params }) => {
        
     </div>
     <div className="flex justify-center gap-4 p-1 sm:p-4 ">
-        <Link 
-        className="bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-2 px-4 rounded transition-all duration-300"
-        href={`/${parseInt(PageNumber) - 1 === 1 ?'':1}`} >go to Pre</Link>
-        <Link 
-        className="bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-2 px-4 rounded transition-all duration-300"
-        href={`/`} >go to home</Link>
-        <Link 
-        className="bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-2 px-4 rounded transition-all duration-300"
-        href={`/${parseInt(PageNumber) + 1}`} >go to next</Link>
+      {
+        allGroups.length < 16 ? (
+          <Link 
+        className="bg-[#053966] hover:bg-cyan-700 text-white font-bold py-2 px-4 rounded transition-all duration-300"
+        href={'/'} >الرئيسية</Link>
+        ) : (
+          <Link 
+        className="bg-[#053966] hover:bg-cyan-700 text-white font-bold py-2 px-4 rounded transition-all duration-300"
+        href={`/${parseInt(PageNumber) + 1}`} >... المزيد</Link>
+        )
+      }
+        
     </div>
   </div> );
 }

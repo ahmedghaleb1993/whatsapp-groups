@@ -7,24 +7,28 @@ import axios from 'axios';
 const NewGroupPage = () => {
   const [groupName, setGroupName] = useState("");
   const [groupUrl, setGroupUrl] = useState("");
-  const [imageUrl, setImageUrl] = useState("https://picsum.photos/200");
+  const [imageUrl, setImageUrl] = useState("");
   const [canCreate, setCanCreate] = useState(false);
   
   const router = useRouter();
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-        const response = await axios.get(`https://groups.ahmedghaleb.com/api/fetch-url?url=${groupUrl}`)
-        const data = response.data;
-        //console.log(data)
-        if (data) {
-          setImageUrl(data);
-          
+    if (groupUrl.startsWith('https://chat.whatsapp.com/')){
+      try {
+          const response = await axios.get(`https://groups.ahmedghaleb.com/api/fetch-url?url=${groupUrl}`)
+          const data = response.data;
+          //console.log(data)
+          if (data) {
+            setImageUrl(data);
+            
+          }
+          setCanCreate(true);
+        } catch (error) {
+          console.error('Error fetching image:', error);
         }
-        setCanCreate(true);
-      } catch (error) {
-        console.error('Error fetching image:', error);
-      }
+    }else{
+      console.log('Invalid URL')
+    }
   };
 
   const handleCreateGroup = async (e) => {
@@ -64,23 +68,24 @@ const NewGroupPage = () => {
           type="text"
           value={groupName}
           onChange={handleGroupNameChange}
-          placeholder="Enter Group Name..."
-          className="border border-gray-900 p-2 rounded-lg"
+          maxLength="40"
+          placeholder=" ادخل اسم الجروب ..."
+          className=" border my-rtl border-gray-900 p-2 rounded-lg "
         />
         <br />
         <input
           type="text"
           value={groupUrl}
           onChange={handleGroupUrlChange}
-          placeholder="Enter Group Url..."
-          className="border border-gray-900 p-2 rounded-lg"
+          placeholder=" ادخل رابط الجروب ..."
+          className=" my-rtl border border-gray-900 p-2 rounded-lg"
         />
         <br />
         {
             canCreate ? (
-                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded shadow-lg transition-all duration-300" onClick={handleCreateGroup}>Save</button>
+                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded shadow-lg transition-all duration-300" onClick={handleCreateGroup}>حفظ</button>
             ):(
-                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded shadow-lg transition-all duration-300" onClick={handleSubmit}>Get Image</button>
+                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded shadow-lg transition-all duration-300" onClick={handleSubmit}>تاكيد الرابط</button>
             )
         }
         
