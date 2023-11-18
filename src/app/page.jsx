@@ -3,6 +3,7 @@ import Link from 'next/link'
 import axios from 'axios'
 import GroupCard from './components/GroupCard'
 
+export const revalidate = 0
 
 export default async function Home() {
 
