@@ -1,11 +1,6 @@
 
 
-export const metadata = {
-    icon: './favicon.ico', // /public path
-    title: 'سياسة الخصوصية',
-    description: 'PrivacyPolicy ',
-    
-  }
+
 const PrivacyPolicy = () => {
     return ( <div className="my-rtl max-w-4xl mx-auto text-lg">
         <h1 className="text-3xl font-bold text-center my-4">سياسة الخصوصية</h1>
