@@ -23,7 +23,7 @@ export default async function Home() {
       <div className='flex justify-center gap-4 p-1 sm:p-4'>
       <Link 
       className="bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-2 px-4 rounded transition-all duration-300"
-      href='/2' >go to next</Link>
+      href='/2' >التالي</Link>
       </div>
     </div>
   )

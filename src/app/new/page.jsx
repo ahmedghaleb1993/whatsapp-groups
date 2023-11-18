@@ -19,6 +19,7 @@ const NewGroupPage = () => {
         //console.log(data)
         if (data) {
           setImageUrl(data);
+          
         }
         setCanCreate(true);
       } catch (error) {
