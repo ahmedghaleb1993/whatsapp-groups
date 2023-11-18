@@ -6,10 +6,12 @@ import GroupCard from './components/GroupCard'
 
 export default async function Home() {
 
-  const response = await axios.post('https://groups.ahmedghaleb.com/api/groups')
-  const allGroups = response.data
-  //console.log(allGroups)
+  const response = await fetch('https://groups.ahmedghaleb.com/api/groups',
+  {method: "POST"} , { cache: 'no-store' })
+  const allGroups = await response.json()
+  console.log(allGroups)
   return (
+    
     <div className='container max-w-6xl mx-auto min-h-screen mt-16'>
 
       <div className='flex flex-wrap justify-around  gap-4 p-1 sm:p-4 '>
