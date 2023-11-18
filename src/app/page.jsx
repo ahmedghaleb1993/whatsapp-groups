@@ -7,7 +7,7 @@ import GroupCard from './components/GroupCard'
 export default async function Home() {
 
   const response = await fetch('https://groups.ahmedghaleb.com/api/groups',
-  {method: "POST"} , { next: { revalidate: 30 } })
+  {method: "POST"} , { next: { revalidate: 0 } })
   const allGroups = await response.json()
   console.log(allGroups)
   return (
