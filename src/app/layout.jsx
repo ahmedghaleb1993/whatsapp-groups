@@ -1,7 +1,7 @@
 import { Tajawal } from 'next/font/google'
 import './globals.css'
 import Navbar from './components/Navbar'
-import Head from 'next/head'
+import Footer from './components/Footer'
 
 const inter = Tajawal({ subsets: ['arabic'],
 weight: ['400', '500', '700'],
@@ -30,8 +30,15 @@ export default function RootLayout({ children }) {
       
 
       <body className={` ${inter.className} bg-[#EEEEEE]`}>
+        <div className='flex flex-col justify-between min-h-screen'>
         <Navbar />
-        {children}
+          <main className=' max-w-6xl mx-auto flex-1  pt-16'>
+          
+          {children}
+            
+          </main> 
+        <Footer />
+        </div>
         </body>
     </html>
   )

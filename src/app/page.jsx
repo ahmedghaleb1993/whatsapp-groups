@@ -11,7 +11,7 @@ export default async function Home() {
   //console.log(allGroups)
   return (
     
-    <div className='container max-w-6xl mx-auto min-h-screen mt-16'>
+    <div >
 
       <div className='flex flex-wrap justify-around  gap-2 sm:gap-4 p-1 sm:p-4 '>
         {
