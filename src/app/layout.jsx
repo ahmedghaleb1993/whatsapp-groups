@@ -19,10 +19,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       
       <head>
-        {process.env.NODE_ENV === 'production' && (
-          <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9187309347349975"
-          crossorigin="anonymous"></script>
-        )}
+      <meta name="google-adsense-account" content="ca-pub-9187309347349975" />
 
       <meta name="google-site-verification" content="p8gZ86O0dw4ZAySROThlK4k5xK7iVajRYJq2p4yEE94" />
 
